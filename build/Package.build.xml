@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Package">
+
+  <!--
+ ****************************************
+ * IMPORTS
+ ****************************************
+ -->
+  <Import Project="$(MSBuildProjectDirectory)\MSBuildTasks\MSBuild.Umbraco.Tasks.Targets" />
+
+  <!--
+ ****************************************
+ * PROPERTIES
+ ****************************************
+ -->
+  <PropertyGroup>
+    <PackageVersion>1.0.0.0</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Root folder of the project files to be built. -->
+    <RootDir>$(MSBuildProjectDirectory)\..\Source\Mayfly.MrNPicker</RootDir>
+    <!-- Path to project build file. -->
+    <ProjectFilePath>$(RootDir)\Mayfly.MrNPicker.csproj</ProjectFilePath>
+    <!-- Folder which the package files should be copied to before processing. -->
+    <FilesDir>$(MSBuildProjectDirectory)\Files</FilesDir>
+    <!-- Folder to store the compressed package file. -->
+    <PackageDir>$(MSBuildProjectDirectory)\Package</PackageDir>
+    <!-- The working directory used for processing the package files before compression. -->
+    <WorkingDir>$(MSBuildProjectDirectory)\_Working</WorkingDir>
+  </PropertyGroup>
+
+  <!--
+ ****************************************
+ * TARGETS
+ ****************************************
+ -->
+
+  <!-- CLEAN -->
+  <Target Name="Clean">
+    <RemoveDir Directories="$(FilesDir)" Condition="Exists('$(FilesDir)')" />
+    <RemoveDir Directories="$(WorkingDir)" Condition="Exists('$(WorkingDir)')" />
+    <RemoveDir Directories="$(PackageDir)" Condition="Exists('$(PackageDir)')" />
+    <RemoveDir Directories="$(ReleaseFilesDir)" Condition="Exists('$(ReleaseFilesDir)')" />
+    <MakeDir Directories="$(FilesDir)" />
+    <MakeDir Directories="$(PackageDir)" />
+    <MakeDir Directories="$(WorkingDir)" />
+    <MakeDir Directories="$(ReleaseFilesDir)" />
+    <MakeDir Directories="$(ReleasePackagesDir)" />
+  </Target>
+
+  <!-- COMPILE -->
+  <Target Name="Compile" DependsOnTargets="Clean">
+    <MSBuild Projects="$(ProjectFilePath)" Properties="Configuration=Release" />
+  </Target>
+
+  <!-- PREPAIRE FILES -->
+  <Target Name="PrepairFiles" DependsOnTargets="Compile">
+    <ItemGroup>
+      <BinFiles Include="$(RootDir)\bin\Mayfly.MrNPicker.dll" />
+      <PluginFiles Include="$(RootDir)\App_Plugins\MrNPicker\**\*.*" />
+	  <PreValueEditorFiles Include="$(RootDir)\umbraco\Views\prevalueeditors\Mayfly.MultiPicker.html" />
+      <PackageFile Include="$(MSBuildProjectDirectory)\Package.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(FilesDir)\bin" />
+    <Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(FilesDir)\App_Plugins\MrNPicker" />
+	<Copy SourceFiles="@(PreValueEditorFiles)" DestinationFolder="$(FilesDir)\umbraco\Views\prevalueeditors" />
+    <Copy SourceFiles="@(PackageFile)" DestinationFolder="$(FilesDir)" />
+    <ItemGroup>
+      <BuildFiles Include="$(FilesDir)\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BuildFiles)" DestinationFolder="$(WorkingDir)\%(RecursiveDir)" />
+  </Target>
+
+  <!-- MANIFEST -->
+  <Target Name="Manifest" DependsOnTargets="PrepairFiles">
+    <ItemGroup>
+      <ManifestFiles Include="$(WorkingDir)\**\*" Exclude="$(WorkingDir)\Package.xml" />
+    </ItemGroup>
+    <!--<ReadLinesFromFile File="$(MSBuildProjectDirectory)\Readme.txt">
+      <Output TaskParameter="Lines" ItemName="Readme" />
+    </ReadLinesFromFile>-->
+    <ManifestUpdate ManifestFile="$(WorkingDir)\Package.xml" WorkingDirectory="$(WorkingDir)" PackageVersion="$(PackageVersion)" Readme="@(Readme->'%(Identity)', '%0a%0d')" Files="@(ManifestFiles)" />
+  </Target>
+
+  <!-- PACKAGE -->
+  <Target Name="Package" DependsOnTargets="Manifest">
+    <ItemGroup>
+      <PackageFiles Include="$(WorkingDir)\**\*.*" />
+    </ItemGroup>
+    <Package ManifestFile="$(WorkingDir)\Package.xml"
+      WorkingDirectory="$(WorkingDir)"
+      OutputDirectory="$(PackageDir)"
+      Files="@(PackageFiles)" />
+  </Target>
+
+</Project>

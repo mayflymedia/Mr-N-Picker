@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+	<info>
+		<package>
+			<name>Project Yoxo</name>
+			<version>1.0.0.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+			<url>http://www.mayflymedia.co.uk</url>
+			<requirements>
+				<major>7</major>
+				<minor>0</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Mayfly Media Ltd</name>
+			<website>http://www.mayflymedia.co.uk</website>
+		</author>
+		<readme>
+			<![CDATA[Please refer to the package documentation for more information.]]>
+		</readme>
+	</info>
+	<files />
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<Actions />
+</umbPackage>

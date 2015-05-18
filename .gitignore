@@ -1,0 +1,47 @@
+# Ignore thumbnails created by windows
+Thumbs.db
+
+# Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+
+**/Mayfly.MrNPicker/bin/
+
+# Ignore NuGet packages
+**/packages/*
+!**/packages/repositories.config
+!**/packages/build/
+
+#Ignore temporary files
+**/App_Data/*
+!App_Data/access.config
+!App_Data/packages/
+
+# Ignore Umbraco folders (Generated folders created by Umbraco)
+ClientDependency/
+TEMP/
+Logs/
+Cached/
+ExamineIndexes/
