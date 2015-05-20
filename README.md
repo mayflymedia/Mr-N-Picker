@@ -14,7 +14,7 @@ Mr N Picker is available from Our Umbraco, NuGet, or as a manual install directl
 You can find a downloadable package, along with a discussion forum for this package on the [Our Umbraco](https://our.umbraco.org/projects/backoffice-extensions/mr-n-picker) site.
 
 #### NuGet package repository
-To instal from NuGet, run the following command in your instance of Visual Studio.
+To [install from NuGet](https://www.nuget.org/packages/MrNPicker/), run the following command in your instance of Visual Studio.
 
     PM> Install-Package MrNPicker 
 
