@@ -19,10 +19,10 @@ To [install from NuGet](https://www.nuget.org/packages/MrNPicker/), run the foll
     PM> Install-Package MrNPicker 
 
 #### Manual installation
-Just download and add the package to your `App_Plugins` folder. When you upen your instance of Umbraco you will be able to create a new data type based on Mr N Picker.
+Just download and add the package to your `App_Plugins` folder. When you open your instance of Umbraco you will be able to create a new data type based on Mr N Picker.
 
 ### Using Mr N Picker
-Using Mr N Picker is simple. Set up a new data type and select the `Mayfly.MrNPicker` type from within Umbraco's Developer section. After your selection, you will be presentated with the following options for your data type, which are as follows:
+Using Mr N Picker is simple. Set up a new data type and select the `Mayfly.MrNPicker` type from within Umbraco's Developer section. After your selection, you will be presented with the following options for your data type, which are as follows:
 
 * **Root nodes:** A MNTP that allows you to select one or more roots for your multi-root node picker.
 * **XPath:** A collection of XPath expressions to select a number of roots
