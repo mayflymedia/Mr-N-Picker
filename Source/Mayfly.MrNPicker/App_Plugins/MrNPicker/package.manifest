@@ -42,7 +42,12 @@
                     description: "Merge trees if selected root is child of another",
                     key: "mergeRoots",
                     view: "boolean"
-                }]
+                },
+				{
+					label: "Show Edit Button",
+					key: "showEditButton",
+					view: "boolean"
+				}]
             }
         }
     ],
