@@ -1,52 +1,52 @@
 {
-	"propertyEditors": [
-		{
-			"alias": "Mayfly.MrNPicker",
-			"name": "Mr N Picker",
-			"editor": {
-				"view": "~/App_Plugins/MrNPicker/views/mayfly.mrnpicker.html"
-			},
-			"prevalues": {
-				"fields": [{
+    "propertyEditors": [
+        {
+            "alias": "Mayfly.MrNPicker",
+            "name": "Mr N Picker",
+            "editor": {
+                "view": "~/App_Plugins/MrNPicker/views/mayfly.mrnpicker.html"
+            },
+            "prevalues": {
+                "fields": [{
                     label: "Root nodes",
                     description: "Pick some root nodes",
                     key: "rootNodes",
                     view: "~/App_Plugins/MrNPicker/views/mayfly.multipicker.html"
                 },
-				{
+                {
                     label: "XPath",
                     description: "Choose root node by XPath",
                     key: "xpath",
                     view: "multivalues"
                 },
-				{
+                {
                     label: "Allow items of type",
                     description: "Aliases separated with commas",
                     key: "filter",
                     view: "textstring"
                 },
-				{
-					"label": "Minimum number of items",
-					"description": "The minimum number of items to display",
-					"key": "minNumber",
-					"view": "number"
-				},
-				{
-					"label": "Maximum number of items",
-					"description": "The maximum number of items to display",
-					"key": "maxNumber",
-					"view": "number"
-				},
+                {
+                    "label": "Minimum number of items",
+                    "description": "The minimum number of items to display",
+                    "key": "minNumber",
+                    "view": "number"
+                },
+                {
+                    "label": "Maximum number of items",
+                    "description": "The maximum number of items to display",
+                    "key": "maxNumber",
+                    "view": "number"
+                },
                 {
                     label: "Merge roots",
                     description: "Merge trees if selected root is child of another",
                     key: "mergeRoots",
                     view: "boolean"
                 }]
-			}
-		}
-	],
-	"javascript": [
-		"~/App_Plugins/MrNPicker/mayfly.mrnpicker.controller.js"
-	]
+            }
+        }
+    ],
+    "javascript": [
+        "~/App_Plugins/MrNPicker/mayfly.mrnpicker.controller.js"
+    ]
 }
