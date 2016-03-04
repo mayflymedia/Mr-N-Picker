@@ -44,7 +44,7 @@ This project is maintained by [Mayfly Media](http://www.mayflymedia.co.uk). If y
 * Dean Evans
 * [Emma Garland](https://twitter.com/emmagarland/)
 * [James Patterson](https://twitter.com/jamesrpatterson/)
-* Joshua Richards
+* [Joshua Richards](https://twitter.com/5h099y)
 * [Mike Bull](https://twitter.com/mikebull/)
 * Simon Hartfield
 * Tom Barklamb
