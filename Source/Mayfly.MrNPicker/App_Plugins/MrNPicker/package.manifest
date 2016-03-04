@@ -43,11 +43,11 @@
                     key: "mergeRoots",
                     view: "boolean"
                 },
-				{
-					label: "Show Edit Button",
-					key: "showEditButton",
-					view: "boolean"
-				}]
+                {
+                    label: "Show Edit Button",
+                    key: "showEditButton",
+                    view: "boolean"
+                }]
             }
         }
     ],
