@@ -71,7 +71,7 @@
     }
 }
 
-function contentPickerController($scope, dialogService, entityResource, editorState, $log, iconHelper, $routeParams, fileManager, contentEditingHelper) {
+function contentPickerController($scope, mfyDialogService, entityResource, editorState, $log, iconHelper, $routeParams, fileManager, contentEditingHelper) {
 
     function trim(str, chr) {
         var rgxtrim = (!chr) ? new RegExp('^\\s+|\\s+$', 'g') : new RegExp('^' + chr + '+|' + chr + '+$', 'g');
@@ -170,7 +170,7 @@ function contentPickerController($scope, dialogService, entityResource, editorSt
 
     // dialog
     $scope.openContentPicker = function () {
-        var d = dialogService.treePicker(dialogOptions);
+        var d = mfyDialogService.treePicker(dialogOptions);
     };
 
     $scope.remove = function (index) {
