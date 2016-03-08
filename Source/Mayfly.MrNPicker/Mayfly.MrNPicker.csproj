@@ -251,7 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\MrNPicker\mayfly.mrnpicker.controller.js" />
+    <Content Include="App_Plugins\MrNPicker\mayfly.mrnpicker.service.js" />
     <Content Include="App_Plugins\MrNPicker\views\mayfly.mrnpicker.html" />
+    <Content Include="App_Plugins\MrNPicker\views\treepicker.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="css\dummy.txt" />
     <Content Include="default.aspx" />
