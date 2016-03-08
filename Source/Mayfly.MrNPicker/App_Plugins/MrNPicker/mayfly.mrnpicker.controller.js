@@ -615,12 +615,23 @@ function mfyTreePickerController($scope, entityResource, eventsService, $log, se
 
     $scope.onSearchResults = function (results) {
 
+        var rootNodes = [];
+
+        _.each(dialogOptions.rootNodes.split(','),function(id) {
+            rootNodes.push(parseInt(id));
+        })
+
         //filter all items - this will mark an item as filtered
         performFiltering(results);
 
         //now actually remove all filtered items so they are not even displayed
         results = _.filter(results, function (item) {
             return !item.filtered;
+        });
+
+        //remove any nodes that are not a descendant of one of the root nodes
+        results = _.filter(results, function(item) {
+            return _.contains(rootNodes, item.parentId);
         });
 
         $scope.searchInfo.results = results;
