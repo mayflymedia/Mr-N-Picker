@@ -297,7 +297,7 @@
          * @returns {Object} modal object
          */
         treePicker: function (options) {
-            options.template = 'views/treePicker.html';
+            options.template = '/App_Plugins/MrNPicker/views/treePicker.html';
             options.show = true;
             return openDialog(options);
         }
