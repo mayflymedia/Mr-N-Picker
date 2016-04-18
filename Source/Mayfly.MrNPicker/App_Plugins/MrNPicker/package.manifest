@@ -52,7 +52,6 @@
         }
     ],
     "javascript": [
-        "~/App_Plugins/MrNPicker/mayfly.mrnpicker.controller.js",
-		"~/App_Plugins/MrNPicker/mayfly.mrnpicker.service.js"
+        "~/App_Plugins/MrNPicker/mayfly.mrnpicker.controller.js"
     ]
 }

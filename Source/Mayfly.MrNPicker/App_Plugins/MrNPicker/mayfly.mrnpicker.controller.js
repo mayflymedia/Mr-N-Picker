@@ -71,7 +71,7 @@
     }
 }
 
-function contentPickerController($scope, mfyDialogService, entityResource, editorState, $log, iconHelper, $routeParams, fileManager, contentEditingHelper) {
+function contentPickerController($scope, dialogService, entityResource, editorState, $log, iconHelper, $routeParams, fileManager, contentEditingHelper) {
 
     function trim(str, chr) {
         var rgxtrim = (!chr) ? new RegExp('^\\s+|\\s+$', 'g') : new RegExp('^' + chr + '+|' + chr + '+$', 'g');
@@ -161,7 +161,9 @@ function contentPickerController($scope, mfyDialogService, entityResource, edito
         },
         treeAlias: 'customcontent',
         section: 'customcontent', // $scope.model.config.startNode.type,
-        customTreeParams: 'pageId=' + $routeParams.id + '&rootIds=' + $scope.model.config.rootNodes + '&xpath=' + encodeURIComponent(joinedXpath) + '&mergeRoots=' + $scope.model.config.mergeRoots
+        customTreeParams: 'pageId=' + $routeParams.id + '&rootIds=' + $scope.model.config.rootNodes + '&xpath=' + encodeURIComponent(joinedXpath) + '&mergeRoots=' + $scope.model.config.mergeRoots,
+        template: '/App_Plugins/MrNPicker/views/treePicker.html',
+        show: true
     };
 
     // since most of the pre-value config's are used in the dialog options (i.e. maxNumber, minNumber, etc...) we'll merge the 
@@ -170,7 +172,7 @@ function contentPickerController($scope, mfyDialogService, entityResource, edito
 
     // dialog
     $scope.openContentPicker = function () {
-        var d = mfyDialogService.treePicker(dialogOptions);
+        var d = dialogService.open(dialogOptions);
     };
 
     $scope.remove = function (index) {
