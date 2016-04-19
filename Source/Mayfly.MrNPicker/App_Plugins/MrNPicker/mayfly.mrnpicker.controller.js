@@ -632,8 +632,17 @@ function mfyTreePickerController($scope, entityResource, eventsService, $log, se
         });
 
         //remove any nodes that are not a descendant of one of the root nodes
-        results = _.filter(results, function(item) {
-            return _.contains(rootNodes, item.parentId);
+        results = _.filter(results, function (item) {
+
+            var isDescendant = false;
+
+            angular.forEach(item.path.split(','), function (id) {
+                if (!isDescendant) {
+                    isDescendant = _.contains(rootNodes, parseInt(id));
+                }
+            });
+
+            return isDescendant;
         });
 
         $scope.searchInfo.results = results;
