@@ -165,6 +165,7 @@
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -251,6 +252,7 @@
   <ItemGroup>
     <Content Include="App_Plugins\MrNPicker\mayfly.mrnpicker.controller.js" />
     <Content Include="App_Plugins\MrNPicker\views\mayfly.mrnpicker.html" />
+    <Content Include="App_Plugins\MrNPicker\views\treepicker.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="css\dummy.txt" />
     <Content Include="default.aspx" />
